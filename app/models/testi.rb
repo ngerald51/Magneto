@@ -1,0 +1,2 @@
+class Testi < ApplicationRecord
+end
