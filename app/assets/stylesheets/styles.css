@@ -1,0 +1,51 @@
+div.jumbotron.businessFront{
+  background:url(/assets/alex-shutin-205126.jpg);
+  padding:50px;
+  margin:50px;
+  background-size:contain;
+}
+
+h1.text-center.bg-primary{
+  color:white;
+  font-family:'Indie Flower';
+  opacity:0.7;
+}
+
+p.reading_font1{
+  color:white;
+  font-family:'Kaushan Script';
+}
+
+div.container.frontIndex{
+  background:url(/assets/rawpixel-com-252127.jpg);
+  background-size:cover;
+  text-align:center;
+  height:200px;
+}
+
+img{
+  width:100px;
+}
+
+div#employer_profile.col-md-4{
+}
+
+div#employer_login.row{
+  background:url(/assets/alex-shutin-205126.jpg);
+  background-size:contain;
+  padding:20px;
+  background-repeat:round;
+}
+
+div#login.row{
+  background-size:contain;
+  padding:20px;
+  background-repeat:round;
+}
+
+div#referral_login.row{
+  background:url(/assets/benny-jackson-222664.jpg);
+  background-size:contain;
+  background-repeat:round;
+}
+
