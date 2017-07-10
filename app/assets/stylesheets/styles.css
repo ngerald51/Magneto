@@ -38,8 +38,7 @@ div#employer_login.row{
 
 div#login.row{
   background-size:contain;
- 
-  background-repeat:round;
+   background-repeat:round;
 }
 
 div#referral_login.row{
@@ -48,3 +47,8 @@ div#referral_login.row{
   background-repeat:round;
 }
 
+div.ui.secondary.menu a.item.active {
+  background: #7E8AA2;
+  color: white;
+}
+ 
