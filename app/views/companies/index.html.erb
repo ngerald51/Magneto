@@ -1,10 +1,8 @@
-
-<%= render 'coynavbar'%>
-
+<%= render 'layouts/navbar'%>
 <div>
   <div class="row" id="employer_login">
     <div class="col-lg-12 col-md-12">
-      <link rel="stylesheet" href= <%= stylesheet_link_tag "login" %>>
+      <%= stylesheet_link_tag "login" %>
       <div class="form">
 
         <ul class="tab-group">
@@ -12,75 +10,120 @@
           <li class="tab"><a href="#login">Log In</a></li>
         </ul>
 
-        <div cl="tab-content">
+        <div class="tab-content">
           <div id="signup">   
             <h1>Sign Up for Free</h1>
 
             <%= form_for(@resource, url: company_registration_path(@resource)) do |f| %>
 
-
-            <div class="field">
-              Company Name<br />
+            <div class="field-wrap">
+              <%= f.label :coyname, 'Company Name' %><br /><br/>
               <%= f.text_field :coyname, autofocus: true %>
             </div>
 
-
-            <div class="field">
-              Company HR Email<br />
-              <%= f.email_field :email, autofocus: true %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            </div>
+            <div class="field-wrap">
+             <%= f.label :hr_name, 'HR in Charge' %><br /><br/>
+             <%= f.text_field :hr_name, autofocus: true %>
+           </div>
 
 
-            <div class="field">
-              HR In Charge Name<br />
-              <%= f.text_field :hr_name, autofocus: true %>
-            </div>
-
-
-            <div class="actions">
-              <%= f.submit "Sign up" %>
-            </div>
-            <% end %>
-
-
+           <div class="field-wrap">
+            <%= f.label :email, 'HR email address' %><br /><br/>
+            <%= f.email_field :email, autofocus: true %>
           </div>
 
-          <div id="login">   
-            <h1>Welcome Back!</h1>
-
-            <%= form_for(@resource, url: new_company_session_path(@resource)) do |f| %>
-
-            <div class="field">
-
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %>
-            </div>
-
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-            <div class="actions">
-              <%= f.submit "Log in", class: "button button-block" %>
-            </div>
-            <% end %>
-
+          <div class="field-wrap">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br /><br/>
+            <%= f.password_field :password, autocomplete: "off" %>
           </div>
+
+          <div class="field-wrap">
+            <%= f.label :password_confirmation %><br /><br/>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class: "button button-block" %>
+          </div>
+          <% end %>
+
+
         </div>
+        
+        <div id="login">   
+         <h1>Welcome Back!</h1>
+
+         <%= form_for(@resource, url: new_company_session_path(@resource)) do |f| %>
+
+         <div class="field-wrap">
+
+          <%= f.label :email, "Email" %><br/><br/>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field-wrap">
+          <%= f.label :password, "Password" %><br/><br/>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Log in", class: "button button-block" %>
+        </div>
+        <% end %>
+
       </div>
+
+
+
     </div>
-    <%= render 'layouts/footer'%>
+  </div>
+</div>
+
+ <script> $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+  
+  var $this = $(this),
+      label = $this.prev('label');
+
+    if (e.type === 'keyup') {
+      if ($this.val() === '') {
+          label.removeClass('active highlight');
+        } else {
+          label.addClass('active highlight');
+        }
+    } else if (e.type === 'blur') {
+      if( $this.val() === '' ) {
+        label.removeClass('active highlight'); 
+      } else {
+        label.removeClass('highlight');   
+      }   
+    } else if (e.type === 'focus') {
+      
+      if( $this.val() === '' ) {
+        label.removeClass('highlight'); 
+      } 
+      else if( $this.val() !== '' ) {
+        label.addClass('highlight');
+      }
+    }
+
+});
+
+$('.tab a').on('click', function (e) {
+  
+  e.preventDefault();
+  
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
+  
+  target = $(this).attr('href');
+
+  $('.tab-content > div').not(target).hide();
+  
+  $(target).fadeIn(600);
+  
+});
+</script>
+<%= render 'layouts/footer'%>
 

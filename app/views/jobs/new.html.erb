@@ -1,0 +1,109 @@
+<%= render 'companies/coynavbar' %>
+
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ui segment grey inverted">
+        <h1 class="ui header">
+         Create Listing         
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <%= form_for(@jobs, url: jobs_path(@jobs)) do |f| %>
+
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Industry </h3></div>
+            <div class="panel-body">
+              <p>Select your Industry your job is in </p>
+              <%= f.select :sector ,['Accounting','Infrastructure','Finance', 'IT', 'Mangament', 'AeroSpace', 'Energy', 'Healthcare','Electronics','Chemicals'], class: 'ui search dropdown' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Job Type</h3></div>
+              <div class="panel-body">
+               <%= f.select :jobtype ,['Permanent','Contract','Temporary'], 
+               class: 'ui search dropdown' %>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Position </h3></div>
+              <div class="panel-body">
+                <%= f.text_field :title, autofocus: true %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Bounty offer</h3></div>
+                <div class="panel-body">
+                  <p>Please enter an amount this will be converted to a bounty index </p>
+                  <%= f.text_field :bounty, autofocus: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="text-center panel-title">Job Description </h3></div>
+                  <div class="panel-body">
+                   <%= f.text_area :details, autofocus: true %>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="text-center panel-title">Parameter Section </h3></div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="ui label">
+                          <i class="filter icon"></i> Years Experience
+                        </div>
+                        <div class="ui label">
+                          <i class="filter icon"></i> Education 
+                        </div>
+                        <div class="ui label">
+                          <i class="filter icon"></i> Skills
+                        </div>
+                        <div class="ui label">
+                          <i class="filter icon"></i> Trust
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="employerListing">
+            <div class="row" id="post_listing">
+              <div class="col-md-1">
+                <%= f.submit "Post Listing", class: 'btn btn-default' %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <%= render 'layouts/footer'%>

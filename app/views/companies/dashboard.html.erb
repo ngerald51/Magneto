@@ -1,273 +1,246 @@
-    <%= render 'coynavbar'%>
-    <div>
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Profile </h1></div>
-            </div>
+<%= render 'coynavbar' %>
+<div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
         </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4" id="employer_profile"><img src="/assets/NASA.jpg"></div>
+
+        <div class="col-md-5">
+            <h2><%= @company.coyname %> Profile Page </h2>
+            
+        </div>
+        <div class="col-md-3"> 
+
+        </div>
+        <br/>
+        <br/>
+
         <div>
             <div class="row">
-                <div class="col-md-4" id="employer_profile"><img src="/assets/NASA.jpg"></div>
                 <div class="col-md-5">
-                    <h3 class="text-left">Company NASA </h3>
-                    <p class="company_profile_font">We are a company that sends people to space and are looking for a new crew to send to Mars. We hope to find talented people with the right stuff to make mars habitable for the human raceWe are a company that specialises in Space technology
-                        and are</p>
+                    <div id="context2">
+                        <div class="ui secondary menu">
+                            <a class="item active" data-tab="edit">Edit Profile</a>
+                            <a class="item" data-tab="jobs">View Jobs Posted</a>
+                            <a class="item" data-tab="sixth">Company Reviews</a>
+                        </div>
+                        <div class="ui tab segment" data-tab="edit">
+
+                            <div class="ui segment black inverted">
+                                <h3 class="ui header">
+                                    Edit Company Profile         
+                                </h3>
+                            </div>
+
+                            <%= form_for(@company , url: edit_company_registration_path(@company), html: { method: :put }) do |f| %>
+
+                            <div class="field-wrap">
+                             HR Email
+                             <%= f.email_field :email, autofocus: true %>
+                         </div>
+
+                         <div class="field-wrap">
+                            Company
+                            <%= f.text_field :coyname, autofocus: true %>
+                        </div>
+
+                        <div class="field-wrap">
+                           HR in Charge
+                           <%= f.text_field :hr_name, autofocus: true %>
+                       </div>
+
+                       <div class="field-wrap">
+                         Company Summary<br/>
+                         <%= f.text_area :details, autofocus: true %>
+                     </div>
+                     <br/>
+
+
+                     <div class="actions">
+                        <%= f.submit "Update" %>
                     </div>
-                    <div class="col-md-3"></div>
+                    <% end %>
                 </div>
-            </div>
-            <div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1>Industry Space</h1></div>
-                        <div class="col-md-4">
-                            <h1>Accountant </h1></div>
 
-                            
-                            <div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-1">
 
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab">
-                                                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="true" href="#accordion-1 .item-2">Referral : John Smith</a></h4></div>
-                                                    <div class="panel-collapse collapse in item-2" role="tabpanel">
-                                                        <div class="panel-body">
-                                                            <div class="panel-body">
-                                                                <div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="table-responsive">
-                                                                                <table class="table">
-                                                                                    <thead>
-                                                                                        <tr>
-                                                                                            <th>Referral name</th>
-                                                                                            <th>Jane Doe</th>
-                                                                                        </tr>
-                                                                                    </thead>
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td>Company Links</td>
-                                                                                            <td>Google, FaceBook, NASA, Goldman Sacs</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td>Trust Index </td>
-                                                                                            <td>**** </td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-2">
-                                                                                <div class="panel panel-default">
-                                                                                    <div class="panel-heading" role="tab">
-                                                                                        <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="false" href="#accordion-2 .item-1">Candidate A</a></h4></div>
-                                                                                        <div class="panel-collapse collapse item-1" role="tabpanel">
-                                                                                            <div class="panel-body"></div>
-                                                                                            <div>
-                                                                                                <div class="row">
-                                                                                                    <div class="col-md-6">
-                                                                                                        <ul class="list-group">
-                                                                                                            <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                            <li class="list-group-item"><span>Education History </span></li>
-                                                                                                            <li class="list-group-item"><span>Skills </span></li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                    <div class="col-md-6">
-                                                                                                        <ul class="list-group">
-                                                                                                            <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                            <li class="list-group-item"><span>Degree </span></li>
-                                                                                                            <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="panel panel-default">
-                                                                                        <div class="panel-heading" role="tab">
-                                                                                            <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="false" href="#accordion-2 .item-2">Candidate B</a></h4></div>
-                                                                                            <div class="panel-collapse collapse item-2" role="tabpanel">
-                                                                                                <div class="panel-body">
-                                                                                                    <div>
-                                                                                                        <div class="row">
-                                                                                                            <div class="col-md-6">
-                                                                                                                <ul class="list-group">
-                                                                                                                    <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                                    <li class="list-group-item"><span>Education History </span></li>
-                                                                                                                    <li class="list-group-item"><span>Skills </span></li>
-                                                                                                                </ul>
-                                                                                                            </div>
-                                                                                                            <div class="col-md-6">
-                                                                                                                <ul class="list-group">
-                                                                                                                    <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                                    <li class="list-group-item"><span>Degree </span></li>
-                                                                                                                    <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                                </ul>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="panel panel-default">
-                                                                                            <div class="panel-heading" role="tab">
-                                                                                                <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="true" href="#accordion-2 .item-3">Candidate C</a></h4></div>
-                                                                                                <div class="panel-collapse collapse in item-3" role="tabpanel">
-                                                                                                    <div class="panel-body">
-                                                                                                        <div>
-                                                                                                            <div class="row">
-                                                                                                                <div class="col-md-6">
-                                                                                                                    <ul class="list-group">
-                                                                                                                        <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                                        <li class="list-group-item"><span>Education History </span></li>
-                                                                                                                        <li class="list-group-item"><span>Skills </span></li>
-                                                                                                                    </ul>
-                                                                                                                </div>
-                                                                                                                <div class="col-md-6">
-                                                                                                                    <ul class="list-group">
-                                                                                                                        <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                                        <li class="list-group-item"><span>Degree </span></li>
-                                                                                                                        <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                                    </ul>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-heading" role="tab">
-                                                                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-3">Referral: Katy Perry</a></h4></div>
-                                                                    <div class="panel-collapse collapse item-3" role="tabpanel">
-                                                                        <div class="panel-body">
-                                                                            <div class="panel-body">
-                                                                                <div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="table-responsive">
-                                                                                                <table class="table">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th>Referral name</th>
-                                                                                                            <th>Jane Doe</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <td>Company Links</td>
-                                                                                                            <td>Google, FaceBook, NASA, Goldman Sacs</td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <td>Trust Index </td>
-                                                                                                            <td>**** </td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-2">
-                                                                                                <div class="panel panel-default">
-                                                                                                    <div class="panel-heading" role="tab">
-                                                                                                        <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="true" href="#accordion-2 .item-1">Candidate A</a></h4></div>
-                                                                                                        <div class="panel-collapse collapse in item-1" role="tabpanel">
-                                                                                                            <div class="panel-body"></div>
-                                                                                                            <div>
-                                                                                                                <div class="row">
-                                                                                                                    <div class="col-md-6">
-                                                                                                                        <ul class="list-group">
-                                                                                                                            <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                                            <li class="list-group-item"><span>Education History </span></li>
-                                                                                                                            <li class="list-group-item"><span>Skills </span></li>
-                                                                                                                        </ul>
-                                                                                                                    </div>
-                                                                                                                    <div class="col-md-6">
-                                                                                                                        <ul class="list-group">
-                                                                                                                            <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                                            <li class="list-group-item"><span>Degree </span></li>
-                                                                                                                            <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                                        </ul>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="panel panel-default">
-                                                                                                        <div class="panel-heading" role="tab">
-                                                                                                            <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="false" href="#accordion-2 .item-2">Candidate B</a></h4></div>
-                                                                                                            <div class="panel-collapse collapse item-2" role="tabpanel">
-                                                                                                                <div class="panel-body">
-                                                                                                                    <div>
-                                                                                                                        <div class="row">
-                                                                                                                            <div class="col-md-6">
-                                                                                                                                <ul class="list-group">
-                                                                                                                                    <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                                                    <li class="list-group-item"><span>Education History </span></li>
-                                                                                                                                    <li class="list-group-item"><span>Skills </span></li>
-                                                                                                                                </ul>
-                                                                                                                            </div>
-                                                                                                                            <div class="col-md-6">
-                                                                                                                                <ul class="list-group">
-                                                                                                                                    <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                                                    <li class="list-group-item"><span>Degree </span></li>
-                                                                                                                                    <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                                                </ul>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="panel panel-default">
-                                                                                                            <div class="panel-heading" role="tab">
-                                                                                                                <h4 class="text-center panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-2" aria-expanded="false" href="#accordion-2 .item-3">Candidate C</a></h4></div>
-                                                                                                                <div class="panel-collapse collapse item-3" role="tabpanel">
-                                                                                                                    <div class="panel-body">
-                                                                                                                        <div>
-                                                                                                                            <div class="row">
-                                                                                                                                <div class="col-md-6">
-                                                                                                                                    <ul class="list-group">
-                                                                                                                                        <li class="list-group-item"><span>Work Experience</span></li>
-                                                                                                                                        <li class="list-group-item"><span>Education History </span></li>
-                                                                                                                                        <li class="list-group-item"><span>Skills </span></li>
-                                                                                                                                    </ul>
-                                                                                                                                </div>
-                                                                                                                                <div class="col-md-6">
-                                                                                                                                    <ul class="list-group">
-                                                                                                                                        <li class="list-group-item"><span>5 years etc </span></li>
-                                                                                                                                        <li class="list-group-item"><span>Degree </span></li>
-                                                                                                                                        <li class="list-group-item"><span>People Skills </span></li>
-                                                                                                                                    </ul>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </body>
+                <div class="ui active tab segment" data-tab="jobs">
+                    <div class="ui segment black inverted">
+                        <h3 class="ui header">
+                            Jobs Posted         
+                        </h3>
+                    </div>
 
-                                                    </html>
+                    <table class='table table-striped ui sortable'>
+                      <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Function</th>
+                            <th class='sorted ascending'>Bounty</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @jobs.each do |job| %>
+                        <tr>
+                          <td><%= job.title %></td>
+                          <td><%= job.sector %></td>
+                          <td><%= job.bounty %></td>
+                          <td> <%= link_to 'Edit Posting', edit_jobs_path(job)%></td>
+                          <td>View Candidates</td>
+                          <td><%= link_to 'Remove Posting', jobs_path(job), method: :delete, data:{confirm: "Confirm?"} %></td>
+                      </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+          </div>
+          <div class="ui tab segment" data-tab="sixth">
+            Company Reviews
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script >
+    $('#context2 .menu .item')
+    .tab({context: 'parent'});
+
+
+    (function($) {
+        $.tablesort = function ($table, settings) {
+            var self = this;
+            this.$table = $table;
+            this.$thead = this.$table.find('thead');
+            this.settings = $.extend({}, $.tablesort.defaults, settings);
+            this.$sortCells = this.$thead.length > 0 ? this.$thead.find('th:not(.no-sort)') : this.$table.find('th:not(.no-sort)');
+            this.$sortCells.on('click.tablesort', function() {
+                self.sort($(this));
+            });
+            this.index = null;
+            this.$th = null;
+            this.direction = null;
+        };
+
+        $.tablesort.prototype = {
+
+            sort: function(th, direction) {
+                var start = new Date(),
+                self = this,
+                table = this.$table,
+                rowsContainer = table.find('tbody').length > 0 ? table.find('tbody') : table,
+                rows = rowsContainer.find('tr').has('td, th'),
+                cells = rows.find(':nth-child(' + (th.index() + 1) + ')').filter('td, th'),
+                sortBy = th.data().sortBy,
+                sortedMap = [];
+
+                var unsortedValues = cells.map(function(idx, cell) {
+                    if (sortBy)
+                        return (typeof sortBy === 'function') ? sortBy($(th), $(cell), self) : sortBy;
+                    return ($(this).data().sortValue != null ? $(this).data().sortValue : $(this).text());
+                });
+                if (unsortedValues.length === 0) return;
+
+            //click on a different column
+            if (this.index !== th.index()) {
+                this.direction = 'asc';
+                this.index = th.index();
+            }
+            else if (direction !== 'asc' && direction !== 'desc')
+                this.direction = this.direction === 'asc' ? 'desc' : 'asc';
+            else
+                this.direction = direction;
+
+            direction = this.direction == 'asc' ? 1 : -1;
+
+            self.$table.trigger('tablesort:start', [self]);
+            self.log("Sorting by " + this.index + ' ' + this.direction);
+
+            // Try to force a browser redraw
+            self.$table.css("display");
+            // Run sorting asynchronously on a timeout to force browser redraw after
+            // `tablesort:start` callback. Also avoids locking up the browser too much.
+            setTimeout(function() {
+                self.$sortCells.removeClass(self.settings.asc + ' ' + self.settings.desc);
+                for (var i = 0, length = unsortedValues.length; i < length; i++)
+                {
+                    sortedMap.push({
+                        index: i,
+                        cell: cells[i],
+                        row: rows[i],
+                        value: unsortedValues[i]
+                    });
+                }
+
+                sortedMap.sort(function(a, b) {
+                    return self.settings.compare(a.value, b.value) * direction;
+                });
+
+                $.each(sortedMap, function(i, entry) {
+                    rowsContainer.append(entry.row);
+                });
+
+                th.addClass(self.settings[self.direction]);
+
+                self.log('Sort finished in ' + ((new Date()).getTime() - start.getTime()) + 'ms');
+                self.$table.trigger('tablesort:complete', [self]);
+                //Try to force a browser redraw
+                self.$table.css("display");
+            }, unsortedValues.length > 2000 ? 200 : 10);
+        },
+
+        log: function(msg) {
+            if(($.tablesort.DEBUG || this.settings.debug) && console && console.log) {
+                console.log('[tablesort] ' + msg);
+            }
+        },
+
+        destroy: function() {
+            this.$sortCells.off('click.tablesort');
+            this.$table.data('tablesort', null);
+            return null;
+        }
+
+    };
+
+    $.tablesort.DEBUG = false;
+
+    $.tablesort.defaults = {
+        debug: $.tablesort.DEBUG,
+        asc: 'sorted ascending',
+        desc: 'sorted descending',
+        compare: function(a, b) {
+            if (a > b) {
+                return 1;
+            } else if (a < b) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    };
+
+    $.fn.tablesort = function(settings) {
+        var table, sortable, previous;
+        return this.each(function() {
+            table = $(this);
+            previous = table.data('tablesort');
+            if(previous) {
+                previous.destroy();
+            }
+            table.data('tablesort', new $.tablesort(table, settings));
+        });
+    };
+
+})(window.Zepto || window.jQuery);
+
+
+$('table').tablesort();
+</script>

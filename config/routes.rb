@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users'
 
   resources :users
-  resources :companies
+  resource :jobs
 
+  resources :companies do
+     collection do
+      get 'dashboard'
+    end
+  end
 
   
 

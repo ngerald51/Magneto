@@ -6,13 +6,12 @@ div.jumbotron.businessFront{
 }
 
 h1.text-center.bg-primary{
-  color:white;
   font-family:'Indie Flower';
   opacity:0.7;
 }
 
 p.reading_font1{
-  color:white;
+ 
   font-family:'Kaushan Script';
 }
 
@@ -33,13 +32,13 @@ div#employer_profile.col-md-4{
 div#employer_login.row{
   background:url(/assets/alex-shutin-205126.jpg);
   background-size:contain;
-  padding:20px;
+ 
   background-repeat:round;
 }
 
 div#login.row{
   background-size:contain;
-  padding:20px;
+ 
   background-repeat:round;
 }
 
