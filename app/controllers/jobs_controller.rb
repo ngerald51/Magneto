@@ -12,6 +12,7 @@ class JobsController < ApplicationController
   end
 
   def create
+
     @jobs = Job.create(coy_id: current_company.id, title: params[:job][:title], 
       bounty: params[:job][:bounty], sector: params[:job][:sector], 
       details: params[:job][:details], jobtype: params[:job][:jobtype])
@@ -32,7 +33,15 @@ class JobsController < ApplicationController
     @jobs = Job.find(params[:format])
   end
 
-private
+  def update 
+    @jobs = Job.find(params[:format])
+    @jobs.update(coy_id: current_company.id, title: params[:job][:title], 
+      bounty: params[:job][:bounty], sector: params[:job][:sector], 
+      details: params[:job][:details], jobtype: params[:job][:jobtype])
+    redirect_to dashboard_companies_path
+ end
+
+  private
   def job_params
     params.require(:job).permit(:coy_id, :title, :sector, :details, :bounty, :jobtype)
   end

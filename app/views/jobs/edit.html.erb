@@ -1,10 +1,10 @@
 <%= render 'companies/coynavbar' %>
 
-<div>
+<div class='container'>
   <div class="row">
     <div class="col-md-12">
-      <div class="ui segment grey inverted">
-        <h1 class="ui header">
+      <div class="ui segment black inverted">
+        <h3 class="ui header">
          Edit Listing         
         </h3>
       </div>
@@ -12,7 +12,7 @@
   </div>
   <div>
     <div class="row">
-      <%= form_for(@jobs, url: edit_jobs_path(@jobs)) do |f| %>
+      <%= form_for(@jobs, url: jobs_path(@jobs)) do |f| %>
 
       <div class="col-md-3">
         <div class="panel panel-default">
@@ -20,7 +20,7 @@
             <h3 class="panel-title">Industry </h3></div>
             <div class="panel-body">
               <p>Select your Industry your job is in </p>
-              <%= f.select :sector ,['Accounting','Infrastructure','Finance', 'IT', 'Mangament', 'AeroSpace', 'Energy', 'Healthcare','Electronics','Chemicals'], class: 'ui search dropdown' %>
+              <%= f.select :sector ,['Accounting','Infrastructure','Finance', 'IT', 'Managament', 'AeroSpace', 'Energy', 'Healthcare','Electronics','Chemicals'], class: 'ui search dropdown' %>
             </div>
           </div>
         </div>
@@ -89,8 +89,6 @@
                         <div class="ui label">
                           <i class="filter icon"></i> Trust
                         </div>
-
-
                       </div>
                     </div>
                   </div>
@@ -100,10 +98,11 @@
           </div>
           <div class="employerListing">
             <div class="row" id="post_listing">
-              <div class="col-md-1">
-                <%= f.submit "Edit Listing", class: 'btn btn-default' %>
+              <div class="col-md-3">
+                <%= f.submit "Post Listing", class: 'btn btn-default' %>
               </div>
             </div>
           </div>
           <% end %>
+          </div>
           <%= render 'layouts/footer'%>
