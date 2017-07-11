@@ -1,0 +1,24 @@
+<table class='table table-striped ui sortable'>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Function</th>
+      <th class='sorted ascending' colspan='4'>Bounty</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td><%= job.title %></td>
+      <td><%= job.sector %></td>
+      <td>$<%= job.bounty %> </td>
+      <td><%= link_to 'Edit Posting', edit_jobs_path(job)%></td>
+      <td>View Candidates </td>
+      <td><%= link_to 'Remove Posting', jobs_path(job), method: :delete, data:{confirm: "Confirm?"} %>
+      </td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>

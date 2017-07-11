@@ -16,14 +16,21 @@ User.create(email: email, password: password, password_confirmation: password, f
 
 # Creating Users
 10.times do
-  username = Faker::Internet.user_name
   email = Faker::Internet.email
   password = "password"
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  avatar = Faker::Avatar.image
 
   User.create(email: email, password: password, password_confirmation: password,
-              first_name: first_name, last_name: last_name,
-              remote_avatar_url: avatar )
+              first_name: first_name, last_name: last_name)
 end
+
+#Create Company
+email='gg@gmail.com'
+hr_name='Mark Ho'
+company='Nasa'
+details='NASA Vision: We reach for new heights and reveal the unknown for the benefit of humankind.'
+password='password'
+
+Company.create(email: email, hr_name: hr_name, coyname: company,
+ details: details, password: password, password_confirmation: password)

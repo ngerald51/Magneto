@@ -1,0 +1,48 @@
+<div class="ui basic modal">
+  <i class="close icon"></i>
+  <% @skills=Skill.new %>
+  <%= form_for(@skills , url: skill_path(@skills), remote: true)  do |f| %>
+  <div class="description">
+    <div class="ui header"><h1 color='white'>What Skill would you like to add</h1></div>
+    <%= f.text_field :skill %> 
+    <br/>
+    <div class="actions">
+        <div class="ui black deny button">Cancel</div>
+        <div class="ui positive right labeled icon button">
+          <%= f.submit %> 
+          <i class="checkmark icon"></i>
+          <% end %>
+      </div>
+  </div>
+</div>
+</div>
+
+<% @skills=Skill.where(user_id: current_user.id)%>
+<% if @skills.nil?%>
+Please enter your education details
+<% else %>
+
+
+<table class='table table-striped ui sortable'>
+    <thead>
+      <tr>
+        <th colspan='2'>Skills</th>
+
+    </tr>
+</thead>
+<tbody>
+  <% @skills.each do |s| %>
+  <tr>
+    <td><%= s.skill %></td>
+    <td> <%= link_to 'Remove Skill', skill_path(s), method: :delete, data:{confirm: "Confirm?"}%></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<% end %>
+
+<script>
+  $('.ui.basic.modal')
+  .modal('attach events', '#mySkill', 'show')
+  ; 
+</script>

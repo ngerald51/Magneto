@@ -1,0 +1,48 @@
+<div id="Cv_listing">
+    <div>
+<%= form_for(@user , url: edit_user_registration_path(@user), html: { method: :put }) do |f| %>
+
+        <div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Canidate Summary</h4></div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">First Name </h3></div>
+                                <div class="panel-body">
+                                   <%= f.text_field :firstname, autofocus: true %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Last Name</h3></div>
+                                    <div class="panel-body">
+                                       <%= f.text_field :lastname, autofocus: true %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Summary </h3></div>
+                                        <div class="panel-body">
+                                            <%= f.text_area :headline, autofocus: true %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                <%= f.submit 'Save', class: "btn btn-default" %>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>

@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170709162910) do
     t.integer "user_id"
     t.string "school"
     t.string "year"
+    t.string "level"
+    t.string "cert"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

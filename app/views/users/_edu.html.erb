@@ -1,0 +1,70 @@
+<div class="ui modal">
+  <i class="close icon"></i>
+  <% @edu=Education.new %>
+
+  <%= form_for(@edu , url: education_path(@edu), remote:true) do |f| %>
+  <div class="header">
+    Education Details
+  </div>
+  <div class="image content">
+
+    <div class="description">
+      <div class="ui header">School</div>
+      <%= f.text_field :school %> 
+
+      <div class="ui header">Education Level</div>
+      <%= f.select :level, ['PHD', 'Masters', 'Degree'], class: 'ui search dropdown' %> 
+    </div>
+    <div class="ui header">Certification Obtained</div>
+    <%= f.text_field :cert %>
+  </div>
+  <br/>
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      <%= f.submit %> 
+      <i class="checkmark icon"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="ui cards">
+  <% @edu=Education.where(user_id: current_user.id)%>
+  <% if @edu.nil?%>
+  Please enter your education details
+  <% else %>
+
+  
+  <table class='table table-striped ui sortable'>
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Education Level</th>
+        <th colspan='2'>Certification Obtained</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @edu.each do |edu| %>
+      <tr>
+        <td><%= edu.school %></td>
+        <td><%= edu.level %></td>
+        <td><%= edu.cert %> </td>
+        <td><%= link_to 'Remove Education', education_path(edu), method: :delete, data:{confirm: "Confirm?"} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <% end %>
+</div>
+
+<script>
+  $('.ui.modal')
+  .modal('attach events', '#myModal', 'show')
+  ; 
+</script>

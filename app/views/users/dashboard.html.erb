@@ -1,0 +1,102 @@
+<%= render 'usernavbar' %>
+<div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4" id="employer_profile"><img src="/assets/NASA.jpg">
+           <h2> User Page </h2></div>
+
+           <div class="col-md-5">
+
+
+           </div>
+           <div class="col-md-3"> 
+
+           </div>
+           <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="context2">
+                        <div class="ui secondary menu">
+                            <a class="item active" data-tab="edit">Edit Profile</a>
+                            <a class="item" data-tab="edu">Edit Education</a>
+                            <a class="item" data-tab="skills">Edit Skills</a>
+                            <a class="item" data-tab="referrals">View Referrals</a>
+                            <a class="item" data-tab="testionials">View Testimonials</a>
+                            <a class="item" data-tab="reviews">View Reviews</a>
+                            
+                        </div>
+                        <div class="ui active tab segment" data-tab="edit">
+                            <div class="ui segment black inverted">
+                                <h3 class="ui header">
+                                    Edit CV         
+                                </h3>
+                            </div>
+                            <%= render 'editcv'%>
+                        </div>
+
+                        <div class="ui tab segment" data-tab="edu">
+                            <div class="ui segment black inverted">
+                                <h3 class="ui header">
+                                    Education Details  
+                                    <div align='right'><button type="button" class="btn btn-primary" id='myModal'>
+                                        +</button></div>
+
+                                    </h3>
+                                </div>
+                                <div id='edu-table'>
+                                <%= render 'edu' %>
+                                </div>
+                            </div>
+                            <div class="ui tab segment" data-tab="skills">
+                                <div class="ui segment black inverted">
+                                    <h3 class="ui header">
+                                        Skillsets  
+                                        <div align='right'><button type="button" class="btn btn-primary" id='mySkill'>
+                                            +</button></div>       
+                                        </h3>
+                                    </div>
+                                    <div id='skill-table'>
+                                        <%= render 'skill' %>
+                                    </div>
+                                </div>
+
+                                <div class="ui tab segment" data-tab="referrals">
+                                    <div class="ui segment black inverted">
+                                        <h3 class="ui header">
+                                            Referrals
+                                        </h3>
+                                    </div>
+
+                                </div>
+                                <div class="ui tab segment" data-tab="reviews">
+                                    <div class="ui segment black inverted">
+                                        <h3 class="ui header">Reviews</h3>
+                                    </div>
+
+                                </div>
+                                <div class="ui tab segment" data-tab="testionials">
+                                    <div class="ui segment black inverted">
+                                        <h3 class="ui header">Testionials</h3>
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= render 'layouts/footer'%>
+
+        <script >
+            $('#context2 .menu .item')
+            .tab({context: 'parent'});
+
+        </script>

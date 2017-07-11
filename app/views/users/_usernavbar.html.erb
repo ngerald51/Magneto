@@ -1,15 +1,17 @@
-    <nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Bounty </a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Bounty User Console </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active" role="presentation"><a>Profile </a></li>
-                    <li role="presentation"><a>Create Listing</a></li>
-                    <li role="presentation"><a href="learn.html">Shortlist/Interview</a></li>
+                    <li class="active" role="presentation"><%= link_to 'Profile', dashboard_users_path, class: 'navbar-link item' %>
+                    </li></li>
+                    <li role="presentation"><a>Interviews </a></li>
+                    <li role="presentation"><a href="learn.html"> Write Testimonials </a></li>
                     <li role="presentation"><a href="#">Network </a></li>
                     <li role="presentation"><a href="#">Messages </a></li>
+                    <li role="presentation"><a href="#">Referral Progress</a></li>
                 </ul>
             </div>
         </div>

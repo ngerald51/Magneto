@@ -1,0 +1,28 @@
+<%= form_for(@company , url: edit_company_registration_path(@company), html: { method: :put }) do |f| %>
+
+<div class="field-wrap">
+ HR Email
+ <%= f.email_field :email, autofocus: true %>
+</div>
+
+<div class="field-wrap">
+  Company
+  <%= f.text_field :coyname, autofocus: true %>
+</div>
+
+<div class="field-wrap">
+ HR in Charge
+ <%= f.text_field :hr_name, autofocus: true %>
+</div>
+
+<div class="field-wrap">
+ Company Summary<br/>
+ <%= f.text_area :details, autofocus: true %>
+</div>
+<br/>
+
+
+<div class="actions">
+  <%= f.submit "Update" %>
+</div>
+<% end %>
