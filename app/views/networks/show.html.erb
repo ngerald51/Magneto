@@ -1,0 +1,28 @@
+<% if current_user.nil? %>
+<%= render 'companies/coynavbar' %>
+<% else %>
+<%= render 'users/usernavbar' %>
+<% end %>
+
+
+<div id="context2">
+  <div class="ui secondary menu">
+    <a class="item active" data-tab="friends">Friends</a>
+    <a class="item" data-tab="everyone">Everyone</a>
+  </div>
+  <div class="ui active tab segment" data-tab="friends">
+    <div class="ui segment black inverted">
+      <h3 class="ui header">Friends</h3>
+    </div>
+           <%= render partial: 'friends', locals: {user: @user } %>
+  </div>
+  <div class="ui tab segment" data-tab="everyone">
+
+    <%= render partial: 'everyone', locals: {user: @user } %>
+  </div>
+</div>
+<script >
+  $('#context2 .menu .item')
+  .tab({context: 'parent'});
+
+</script>

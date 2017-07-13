@@ -6,31 +6,54 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Create first admin user
-email = "demo@demo.com"
-password = "password"
-first_name = "Demo"
-last_name = Faker::Name.last_name
-
-User.create(email: email, password: password, password_confirmation: password, first_name: first_name, last_name: last_name)
 
 # Creating Users
-10.times do
+20.times do
   email = Faker::Internet.email
   password = "password"
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-
+  user_img = Faker::Avatar.image
+  headline = Faker::Lorem.paragraph
   User.create(email: email, password: password, password_confirmation: password,
-              first_name: first_name, last_name: last_name)
+    firstname: first_name, lastname: last_name, img_url: user_img, headline: headline)
 end
+
+# Creating Companies
+10.times do
+  email = Faker::Internet.email
+  password = "password"
+  hr_name = Faker::Name.first_name
+  company = Faker::Company.name
+  coy_img= Faker::Company.logo
+  details = Faker::Company.buzzword  + ' ' +Faker::Company.bs
+  Company.create(email: email, password: password, password_confirmation: password,
+    hr_name: hr_name, coyname: company, img_url: coy_img)
+end
+
+#Create Jobs
+10.times do
+  bounty = Faker::Number.between(450, 5000)
+  details = Faker::Company.buzzword  + ' ' +Faker::Company.bs
+  title =Faker::Job.title
+  sector = Faker::Job.field
+  offset = rand(User.count)
+  coyid = User.offset(offset).limit(1).first.id
+  Job.create(coy_id: coyid,bounty: bounty, details: details, title: title, sector: sector)      
+end
+
 
 #Create Company
 email='gg@gmail.com'
 hr_name='Mark Ho'
-company='Nasa'
+company = Faker::Company.name
 details='NASA Vision: We reach for new heights and reveal the unknown for the benefit of humankind.'
 password='password'
+contact= '91235887'
+coy_img= Faker::Company.logo
 
 Company.create(email: email, hr_name: hr_name, coyname: company,
- details: details, password: password, password_confirmation: password)
+ details: details, password: password, password_confirmation: password, img_url: coy_img)
+
+
+

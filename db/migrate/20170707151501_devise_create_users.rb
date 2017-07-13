@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :location
       t.string :headline
       t.string :contact
+      t.string :img_url
       t.integer :workexp
       t.integer :skills
       t.integer :education

@@ -9,9 +9,10 @@
                     </li></li>
                     <li role="presentation"><a>Interviews </a></li>
                     <li role="presentation"><a href="learn.html"> Write Testimonials </a></li>
-                    <li role="presentation"><a href="#">Network </a></li>
+                    <li role="presentation"><%= link_to 'Networks', networks_path, class: 'navbar-link item' %></li>
                     <li role="presentation"><a href="#">Messages </a></li>
                     <li role="presentation"><a href="#">Referral Progress</a></li>
+                     <li role="presentation"> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link item'   %></li>
                 </ul>
             </div>
         </div>

@@ -5,7 +5,7 @@
         <div>
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Canidate Summary</h4></div>
+                    </div>
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -21,6 +21,24 @@
                                     <h3 class="panel-title">Last Name</h3></div>
                                     <div class="panel-body">
                                        <%= f.text_field :lastname, autofocus: true %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Contact Number</h3></div>
+                                    <div class="panel-body">
+                                       <%= f.text_field :contact, autofocus: true %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Address</h3></div>
+                                    <div class="panel-body">
+                                       <%= f.text_area :address, autofocus: true %>
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,7 @@
 </div>
 <div>
     <div class="row">
-        <div class="col-md-4" id="employer_profile"><img src="/assets/NASA.jpg">
+        <div class="col-md-4" id="employer_profile"><img src= <%= @user.img_url %>>
            <h2> User Page </h2></div>
 
            <div class="col-md-5">
@@ -36,7 +36,7 @@
                         <div class="ui active tab segment" data-tab="edit">
                             <div class="ui segment black inverted">
                                 <h3 class="ui header">
-                                    Edit CV         
+                                    Canidate Summary        
                                 </h3>
                             </div>
                             <%= render 'editcv'%>
@@ -46,7 +46,7 @@
                             <div class="ui segment black inverted">
                                 <h3 class="ui header">
                                     Education Details  
-                                    <div align='right'><button type="button" class="btn btn-primary" id='myModal'>
+                                    <div align='right'><button type="button" class="ui inverted button" id='myModal'>
                                         +</button></div>
 
                                     </h3>
@@ -59,7 +59,7 @@
                                 <div class="ui segment black inverted">
                                     <h3 class="ui header">
                                         Skillsets  
-                                        <div align='right'><button type="button" class="btn btn-primary" id='mySkill'>
+                                        <div align='right'><button type="button" class="ui inverted button" id='mySkill'>
                                             +</button></div>       
                                         </h3>
                                     </div>

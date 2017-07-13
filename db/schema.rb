@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709162910) do
+ActiveRecord::Schema.define(version: 20170712070711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170709162910) do
     t.string "details"
     t.string "coyname"
     t.string "hr_name"
+    t.string "img_url"
     t.integer "cnetid"
     t.integer "reviews"
     t.integer "appt_id"
@@ -36,6 +37,13 @@ ActiveRecord::Schema.define(version: 20170709162910) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "company_networks", force: :cascade do |t|
+    t.integer "from_cid"
+    t.integer "to_uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "educations", force: :cascade do |t|
@@ -61,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170709162910) do
   end
 
   create_table "networks", force: :cascade do |t|
-    t.string "from_email"
-    t.string "to_email"
+    t.integer "from_uid"
+    t.integer "to_uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,6 +108,13 @@ ActiveRecord::Schema.define(version: 20170709162910) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "uc_networks", force: :cascade do |t|
+    t.integer "from_uid"
+    t.integer "to_cid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170709162910) do
     t.string "location"
     t.string "headline"
     t.string "contact"
+    t.string "img_url"
     t.integer "workexp"
     t.integer "skills"
     t.integer "education"

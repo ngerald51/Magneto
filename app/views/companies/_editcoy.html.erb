@@ -1,27 +1,33 @@
 <%= form_for(@company , url: edit_company_registration_path(@company), html: { method: :put }) do |f| %>
-
-<div class="field-wrap">
- HR Email
- <%= f.email_field :email, autofocus: true %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="field-wrap">
+     <h3>HR Email <span class='bloody'></span></h3>
+     <%= f.email_field :email, autofocus: true, class: "form-control input-lg input-right" %>
+   </div>
+ </div>
+ <div class="col-md-6">
+  <div class="field-wrap">
+   <h3>HR in Charge <span class= 'bloody'></span></h3>
+   <%= f.text_field :hr_name, autofocus: true, class: "form-control input-lg input-right" %>
+ </div>
+</div>
 </div>
 
-<div class="field-wrap">
-  Company
-  <%= f.text_field :coyname, autofocus: true %>
-</div>
+
 
 <div class="field-wrap">
- HR in Charge
- <%= f.text_field :hr_name, autofocus: true %>
+  <h3>Company Name <span class='bloody'></span></h3>
+  <%= f.text_field :coyname, autofocus: true, class: "form-control input-lg input-right" %>
 </div>
 
+
+
 <div class="field-wrap">
- Company Summary<br/>
- <%= f.text_area :details, autofocus: true %>
+ <h3>Company Summary <span class="bloody"></span></h3>
+ <%= f.text_area :details, autofocus: true, class: "ckeditor form-control required input-lg", cols: "4", rows:"5" %>
 </div>
 <br/>
-
-
 <div class="actions">
   <%= f.submit "Update" %>
 </div>

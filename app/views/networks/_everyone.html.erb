@@ -1,0 +1,40 @@
+<div id="Network_referral">
+  <div class="row">
+   <% user.each do |u| %>
+   <div class="col-md-3">
+
+    <div class="ui card">
+      <div class="image">
+        <img src= <% u.img_url %>>
+      </div>
+      <div class="content">
+        <a class="header"><%= u.firstname %></a>
+        <div class="meta">
+          <span class="date"><%= u.contact %></span>
+        </div>
+        <div class="description">
+          <%= u.headline %>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+        
+          <% if current_user.nil? # Company add user %> 
+          <%= button_to 'AddFriend', networks_path(:to_uid=> u.id, :f_cid => current_company.id, 
+          class: "ui primary basic button"), :method => :post %>
+          <% else %>
+          <%= button_to 'AddFriend', networks_path(:to_id=> u.id, :f_uid => current_user.id, rtype: 'U', class: "ui primary basic button"), :method => :post %>
+
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
+
+</div>
+

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resource :jobs
   resource :education
   resource :skill
+  resource :networks
+
 
   resources :companies do
      collection do

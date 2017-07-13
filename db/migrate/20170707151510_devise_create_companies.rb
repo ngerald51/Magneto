@@ -7,7 +7,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration[5.1]
       t.string :details
       t.string :coyname
       t.string :hr_name
-
+      t.string :img_url
       t.integer :cnetid #network
       t.integer :reviews
       t.integer :appt_id

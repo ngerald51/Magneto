@@ -1,0 +1,37 @@
+  <div class="row">
+  <% if current_company.nil? %>
+    <% @friend=Network.where(from_uid: current_user.id) %>
+    <% @companies= UcNetwork.where(from_uid: current_user.id) %>
+    <% else %>
+      <% @friend=CompanyNetwork.where(from_cid: current_company.id) %>
+    <% end %>
+    
+   <% @friend.each do |u| %>
+   <div class="col-md-3">
+
+    <div class="ui card">
+      <div class="image">
+        <img src= <%= u.to_uid.img_url %>>
+      </div>
+      <div class="content">
+        <a class="header"><%= u.to_uid.firstname %></a>
+        <div class="meta">
+          <span class="date"><%= u.to_uid.contact %></span>
+        </div>
+        <div class="description">
+          <%= u.to_uid.headline %>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
+

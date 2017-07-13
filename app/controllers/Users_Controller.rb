@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    
+
     @user = User.find(current_user.id)
     @edu = Education.where(user_id: current_user.id)
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :headline)
+    params.require(:user).permit(:firstname, :lastname, :headline, :address, :contact)
   end
 end
 
