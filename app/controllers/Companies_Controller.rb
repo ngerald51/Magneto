@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
+
   def index
     @resource=Company.new
+   
     
   end
 
@@ -13,6 +15,11 @@ class CompaniesController < ApplicationController
     @company = Company.find(current_company.id)
     @company.update(coy_params)
     redirect_to dashboard_companies_path
+  end
+
+  def show
+    @company = Company.find(params[:id])
+   @jobs = Job.where(coy_id: params[:id])
   end
 
 

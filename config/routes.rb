@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users'
 
   
-  resource :jobs
+  resources :jobs
   resource :education
   resource :skill
   resource :networks
+  resource :savedjob
+  resources :referral
 
 
   resources :companies do
@@ -18,8 +20,8 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'dashboard'
+      get 'feed'
     end
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -37,8 +37,8 @@ end
   details = Faker::Company.buzzword  + ' ' +Faker::Company.bs
   title =Faker::Job.title
   sector = Faker::Job.field
-  offset = rand(User.count)
-  coyid = User.offset(offset).limit(1).first.id
+  offset = rand(Company.count)
+  coyid = Company.offset(offset).limit(1).first.id
   Job.create(coy_id: coyid,bounty: bounty, details: details, title: title, sector: sector)      
 end
 
@@ -57,3 +57,13 @@ Company.create(email: email, hr_name: hr_name, coyname: company,
 
 
 
+#create testimonials
+10.times do
+  note = Faker::Hacker.say_something_smart
+  offset = rand(Company.count)
+  from_uid = Company.offset(offset).limit(1).first.id
+  offset = rand(Company.count)
+  to_uid = Company.offset(offset).limit(1).first.id
+  
+  Testi.create(from_uid: from_uid,to_uid: to_uid, note: note)      
+end

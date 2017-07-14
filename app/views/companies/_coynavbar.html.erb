@@ -5,9 +5,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to 'Home', company_path(current_company), class: 'navbar-link item' %></li>
                     <li><%= link_to 'Profile', dashboard_companies_path, class: 'navbar-link item' %>
                     </li>
-                    <li role="presentation"><%= link_to 'Create Listing', new_jobs_path, class: 'navbar-link item' %>
+                    <li role="presentation"><%= link_to 'Create Listing', new_job_path, class: 'navbar-link item' %>
                     </li>
                     <li role="presentation"><a href="learn.html">Shortlist/Interview</a></li>
                     <li role="presentation"><%= link_to 'Networks', networks_path, class: 'navbar-link item' %></li>

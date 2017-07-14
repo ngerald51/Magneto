@@ -1,0 +1,18 @@
+<div class="ui form">
+  <%= form_for @ref,  url: referral_path(@ref), method: :post do |f| %>
+   Hi <%= f.select :can_id, User.all, :id , :email %>
+
+    <%= f.hidden_field :ref_id, value: current_user.id %>
+    <br/>
+
+    <div class='field'>
+     I would like to refer you for this position 
+      Company Name : <%= params[:coy] %>
+      Position Name: <%= params[:title] %>
+      
+      Description: <%= params[:des] %>
+    </div>
+
+    <%= f.button :submit, class: 'ui primary submit icon button' %>
+  <% end %>
+</div>

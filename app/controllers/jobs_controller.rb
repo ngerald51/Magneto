@@ -19,18 +19,21 @@ class JobsController < ApplicationController
       render :new
     end
   end
+
   def destroy
-    @jobs = Job.find(params[:format])
+    @jobs = Job.find(params[:id])
     @jobs.destroy
-    redirect_to dashboard_companies_path
+    respond_to do |format|
+        format.js
+      end
   end
 
   def edit
-    @jobs = Job.find(params[:format])
+    @jobs = Job.find(params[:id])
   end
 
   def update 
-    @jobs = Job.find(params[:format])
+    @jobs = Job.find(params[:id])
     @jobs.update(coy_id: current_company.id, title: params[:job][:title], 
       bounty: params[:job][:bounty], sector: params[:job][:sector], 
       details: params[:job][:details], jobtype: params[:job][:jobtype])

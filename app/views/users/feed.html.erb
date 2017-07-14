@@ -1,0 +1,112 @@
+<%= render 'usernavbar' %>
+<div>
+    <div class="row">
+        <div class="col-md-12" align='center'>
+            <h2>Profile </h2>
+            <hr>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4" id="employer_profile"><img src=<%= current_user.img_url %>></div>
+        <div class="col-md-5">
+            <h2 class="text-left"><%= current_user.firstname %></h2>
+            <p class="referral_profile_font"><%= current_user.headline %></p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <hr>
+            <h2>Job Feed</h2></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="ui top attached tabular menu">
+                  <a class="item active" data-tab="first">Job Feed</a>
+                  <a class="item" data-tab="second">Saved Jobs</a>
+              </div>
+              <div class="ui bottom attached tab segment active" data-tab="first">
+                  <% @jobs.each do |job| %>
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading ui accordion" role="tab">
+                        <h4 class="panel-title"><a role="button"><%= Company.find(job.coy_id).coyname %></a></h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><%= job.sector %></th>
+                                        <th><%= job.title %></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in item-1" role="tabpanel">
+                        <div class="panel-body"><span><%= job.details %>.&nbsp; </span>
+                            <hr>
+                            <%= button_to 'Save Job to Referral List', savedjob_path(:job_id=> job.id, :user_id => current_user.id, class: "ui primary basic button"), :method => :post %>
+                         </div>
+                    </div>
+                </div>
+             <% end %>
+           </div>
+            <div class="ui bottom attached tab segment" data-tab="second">
+            <% @savedjobs.each do |job| %>
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading ui accordion" role="tab">
+                        <h4 class="panel-title"><a role="button"><%= Company.find(Job.find(job.job_id).coy_id).coyname %></a></h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><%= Job.find(job.job_id).sector %></th>
+                                        <th><%= Job.find(job.job_id).title %></th>
+                                   
+                                    </tr>
+                                </thead> 
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel-collapse collapse in item-1" role="tabpanel">
+                        <div class="panel-body"><span><%= Job.find(job.job_id).details %>.&nbsp; </span>
+                            <hr>
+                                    
+                         </div> 
+                    </div>
+                </div>
+             <% end %>
+          </div>
+
+          <div class="col-md-2"></div>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+<script>
+
+  $('.menu .item').tab();
+  $('.ui.accordion').accordion()
+  $('.ui.basic.modal')
+  .modal('attach events', '#refjob', 'show')
+  ; 
+</script>

@@ -1,0 +1,95 @@
+<% if current_user.nil? %>
+<%= render 'coynavbar' %>
+<% else %>
+<%= render 'users/usernavbar' %>
+<% end %>
+
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Profile </h1>
+            <hr>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4" id="employer_profile"><img src=<%= @company.img_url %>></div>
+        <div class="col-md-5">
+            <h3 class="text-left"><%= @company.coyname %></h3>
+            <p class="referral_profile_font"><%= @company.details %></p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <hr>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div>
+                <ul class="nav nav-tabs">
+                    <li><a href="#tab-1" role="tab" data-toggle="tab">Review from Referrals</a></li>
+                    <li><a href="#tab-2" role="tab" data-toggle="tab">Review from Candidates</a></li>
+                    <li class="active"><a href="#tab-4" role="tab" data-toggle="tab">Current Job Listings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" role="tabpanel" id="tab-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Name Mark Ho</h3></div>
+                                <div class="panel-body">
+                                    <div class="col-md-4"><img src="assets/img/avatar_2x.png"></div>
+                                    <div class="col-md-8"><span>Husbands ask repeated resolved but laughter debating. She end cordial visitor noisier fat subject general picture. Or if offering confined entrance no. Nay rapturous him see something residence. Highly talked do so vulgar. Her use behaved spirits and natural attempt say feeling. Exquisite mr incommode immediate he something ourselves it of. Law conduct yet chiefly beloved examine village proceed.&nbsp; </span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Candidate Name from Referral Mark Ho</h3></div>
+                                    <div class="panel-body">
+                                        <div class="col-md-4"><img src="assets/img/avatar_2x.png"></div>
+                                        <div class="col-md-8"><span>Husbands ask repeated resolved but laughter debating. She end cordial visitor noisier fat subject general picture. Or if offering confined entrance no. Nay rapturous him see something residence. Highly talked do so vulgar. Her use behaved spirits and natural attempt say feeling. Exquisite mr incommode immediate he something ourselves it of. Law conduct yet chiefly beloved examine village proceed.&nbsp; </span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                  <div class="panel panel-default">
+                                  <% @jobs.each do |job| %>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><%= job.sector %></h3>
+                                    <h3 class="panel-title"><%= job.title %></h3></div>
+                                <div class="panel-body">
+                                    <h3>Job Description</h3><span><%= job.details %>.&nbsp; </span></div>
+                            </div>
+                            <% end %>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Industry Space</h3>
+                                    <h3 class="panel-title">Panel Heading</h3></div>
+                                <div class="panel-body"><span>Panel Body</span></div>
+                            </div>
+                            <p>Third tab content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>

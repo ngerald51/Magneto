@@ -8,14 +8,15 @@
     </tr>
   </thead>
   <tbody>
+    <%  @jobs = Job.where(coy_id: current_company.id) %>
     <% @jobs.each do |job| %>
     <tr>
       <td><%= job.title %></td>
       <td><%= job.sector %></td>
       <td>$<%= job.bounty %> </td>
-      <td><%= link_to 'Edit Posting', edit_jobs_path(job)%></td>
+      <td><%= link_to 'Edit Posting', edit_job_path(job)%></td>
       <td>View Candidates </td>
-      <td><%= link_to 'Remove Posting', jobs_path(job), method: :delete, data:{confirm: "Confirm?"} %>
+      <td><%= link_to 'Remove Posting', job_path(job), method: :delete, remote: true, data:{confirm: "Confirm?"} %>
       </td>
 
     </tr>

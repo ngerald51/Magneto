@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @resource=User.new
   end
@@ -14,6 +15,16 @@ class UsersController < ApplicationController
     @company.update(user_params)
     redirect_to dashboard_users_path
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def feed
+    @jobs= Job.all
+    @savedjobs= SavedJob.where(user_id: current_user.id)
+  end
+
 
   private
 
